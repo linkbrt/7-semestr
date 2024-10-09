@@ -1,0 +1,33 @@
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/action_plushour"
+            android:orderInCategory="100"
+            android:title="@string/action_plushour"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/action_minushour"
+            android:orderInCategory="100"
+            android:title="@string/action_minushour"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/action_plusminute"
+            android:orderInCategory="100"
+            android:title="@string/action_plusminute"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/action_minusminute"
+            android:orderInCategory="100"
+            android:title="@string/action_minusminute"
+            app:showAsAction="never" />
+    </group>
+</menu>

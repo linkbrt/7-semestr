@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">LR2</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_plushour">+1 час</string>
+    <string name="action_minushour">-1 час</string>
+    <string name="action_plusminute">+1 минута</string>
+    <string name="action_minusminute">-1 минута</string>
+</resources>
