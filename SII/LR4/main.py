@@ -16,7 +16,7 @@ def evaluate_fitness(population):
 
 
 def select_parents(population, fitness, num_parents):
-    parents_idx = np.argsort(fitness)[:num_parents]
+    parents_idx = np.argsort(fitness)[-num_parents:]
     return population[parents_idx]
 
 
@@ -34,10 +34,13 @@ def crossover(parents, offspring_size):
 def mutate(offspring, mutation_rate=0.1):
     for idx in range(offspring.shape[0]):
         if np.random.rand() < mutation_rate:
-            random_value_x = np.random.uniform(-1.0, 1.0)
-            random_value_y = np.random.uniform(-1.0, 1.0)
+            random_value_x = np.random.uniform(-5.0, 5.0)
+            random_value_y = np.random.uniform(-5.0, 5.0)
             offspring[idx, 0] += random_value_x
             offspring[idx, 1] += random_value_y
+
+            offspring[idx, 0] = np.clip(offspring[idx, 0], bounds[0], bounds[1])
+            offspring[idx, 1] = np.clip(offspring[idx, 1], bounds[0], bounds[1])
     return offspring
 
 
@@ -54,7 +57,7 @@ def plot_population(population, gen_num, bounds):
 
 def genetic_algorithm(bounds, pop_size=100, num_generations=10, num_parents=10):
     population = generate_population(pop_size, bounds)
-    
+
     for gen in range(num_generations):
         fitness = evaluate_fitness(population)
         
@@ -73,7 +76,7 @@ def genetic_algorithm(bounds, pop_size=100, num_generations=10, num_parents=10):
     print(f'Лучшее решение: x = {best_solution[0]}, y = {best_solution[1]}, f(x, y) = {func(best_solution[0], best_solution[1])}')
 
 
-bounds = [-10, 10]  # Границы поиска
+bounds = [-10, 10]
 genetic_algorithm(bounds)
 
 plt.show()
